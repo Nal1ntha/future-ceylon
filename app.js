@@ -1,5 +1,5 @@
 // Future Ceylon - Core Application Logic & State Engine
-document.addEventListener('DOMContentLoaded', () => {
+function initFutureCeylon() {
   // 1. STATE INITIALIZATION & LOCALSTORAGE HYDRATION
   const DEFAULT_DATA = window.FUTURE_CEYLON_DATA || {};
   let currentCategory = 'all';
@@ -895,4 +895,10 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     showToast('Welcome to Future Ceylon. 6 new breaking dispatches logged today.', '☕');
   }, 1200);
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initFutureCeylon);
+} else {
+  initFutureCeylon();
+}
