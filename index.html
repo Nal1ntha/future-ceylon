@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future Ceylon | Sri Lanka's Hottest Tea, High Society & Colombo Pop Gossip</title>
+  <meta name="description" content="The pulse of paradise. Unfiltered Colombo 7 high society whispers, celebrity drama, midnight Galle Face drag races, Mirissa rave leaks, and anonymous blind items.">
+  <meta name="keywords" content="Future Ceylon, Sri Lanka gossip, Colombo 7, Sri Lankan celebrities, cricket gossip, Galle Face, Mirissa raves, blind items, Colombo tea">
+  
+  <!-- Google Fonts: Cinzel, Syne, Outfit, Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Status Bar -->
+  <header class="top-bar" role="banner">
+    <div class="top-bar-left">
+      <span class="live-pulse"><span class="dot"></span> Colombo Wire Live</span>
+      <span id="colomboTime">Colombo 17:15 IST • 31°C</span>
+      <span class="edition-tag">Island Edition • Vol. 24</span>
+    </div>
+    <div class="top-bar-right">
+      <!-- 3-Theme Switcher -->
+      <div class="theme-selector-wrap" aria-label="Select Palette">
+        <button class="theme-pill-btn active" data-theme-set="midnight" title="Galle Face Midnight">
+          <span>🌙</span> Midnight
+        </button>
+        <button class="theme-pill-btn" data-theme-set="sunset" title="Cinnamon Sunset">
+          <span>🌅</span> Sunset
+        </button>
+        <button class="theme-pill-btn" data-theme-set="emerald" title="Ceylon Emerald Estate">
+          <span>🌿</span> Emerald
+        </button>
+      </div>
+
+      <button id="audioToggleBtn" class="audio-btn" aria-label="Toggle Lounge Audio Vibes">
+        <span id="audioIcon">🔈</span> <span id="audioLabel">Lofi Ambience</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Sticky Main Navigation -->
+  <nav class="main-header" aria-label="Main Navigation">
+    <div class="header-container">
+      <div class="brand-wrapper" id="brandHome" title="Future Ceylon Home">
+        <div class="brand-crest">☕</div>
+        <div class="brand-text">
+          <h1>FUTURE CEYLON</h1>
+          <p>The Pulse of Paradise & Colombo Confessions</p>
+        </div>
+      </div>
+
+      <ul class="nav-links" role="menubar">
+        <li><a class="nav-item active" data-filter="all" role="menuitem">All Tea</a></li>
+        <li><a class="nav-item" data-filter="Colombo 7 Elites" role="menuitem">Colombo 7 Elites</a></li>
+        <li><a class="nav-item" data-filter="Cricket & Stars" role="menuitem">Cricket & Stars</a></li>
+        <li><a class="nav-item" data-filter="Nightlife & Raves" role="menuitem">Nightlife & Raves</a></li>
+        <li><a class="nav-item" data-filter="Pageant & Influencer Drama" role="menuitem">Influencer Drama</a></li>
+        <li><a class="nav-item" href="#blindItemsSection" role="menuitem">Blind Items</a></li>
+        <li><a class="nav-item" href="#spottedRadarSection" role="menuitem">Spotted Radar</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <div class="search-box-wrap">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search tea, stars, plates..." aria-label="Search stories">
+        </div>
+        <button id="openTipModalBtn" class="spill-tea-btn" aria-label="Spill The Tea">
+          <span>🔥</span> Spill The Tea
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Ceylon Wire Ticker Tape -->
+  <section class="ticker-banner" aria-label="Breaking Gossip Wire">
+    <div class="ticker-badge">⚡ CEYLON WIRE</div>
+    <div class="ticker-content" id="tickerContainer">
+      <!-- Ticker items dynamically injected -->
+    </div>
+  </section>
+
+  <!-- Main Application Wrapper -->
+  <main class="app-container" id="mainContent">
+
+    <!-- Category Filter Bar (Mobile & Quick-Access) -->
+    <nav class="category-filter-bar" id="categoryFilterBar" aria-label="Category Filters">
+      <button class="cat-pill active" data-category="all">☕ All Dispatches</button>
+      <button class="cat-pill" data-category="Colombo 7 Elites">🏛️ Colombo 7 Elites</button>
+      <button class="cat-pill" data-category="Cricket & Stars">🏏 Cricket & Stars</button>
+      <button class="cat-pill" data-category="Nightlife & Raves">🌴 Nightlife & Raves</button>
+      <button class="cat-pill" data-category="Pageant & Influencer Drama">👑 Influencers & Pageants</button>
+      <button class="cat-pill" data-category="Silver Screen & Drama">🎬 Silver Screen</button>
+    </nav>
+
+    <!-- Hero / Lead Story Showcase -->
+    <section class="hero-story-grid" id="heroSection" aria-label="Lead Story">
+      <!-- Lead card dynamically injected -->
+      <article class="lead-card" id="leadStoryCard">
+        <!-- Rendered by app.js -->
+      </article>
+
+      <!-- Right Column Widgets -->
+      <aside class="hero-side-panel">
+        <!-- Live Hotspots Radar Widget -->
+        <div class="radar-box">
+          <div class="radar-header">
+            <h3>📍 SPOTTED RADAR</h3>
+            <span>LIVE HEAT</span>
+          </div>
+          <div class="hotspot-list" id="miniHotspotList">
+            <!-- Mini hotspots rendered by app.js -->
+          </div>
+        </div>
+
+        <!-- Blind Item Teaser Widget -->
+        <div class="blind-teaser-box">
+          <div class="blind-teaser-header">
+            <span class="blind-badge">🕵️ TOP SECRET BLIND ITEM</span>
+            <span style="font-size:0.75rem; color:var(--gold-light);">NEW TODAY</span>
+          </div>
+          <h4 id="featuredBlindTitle">The All-Rounder's Mayfair Rendezvous</h4>
+          <p id="featuredBlindDesc">Which star national all-rounder was seen visiting high-end jewellers in Mayfair with a Sri Lankan stylist while supposed to be in training?</p>
+          <button class="blind-solve-btn" id="jumpToBlindsBtn">
+            <span>🔍 Crack The Clues</span>
+          </button>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Main Stories Feed Grid -->
+    <section class="stories-section" aria-label="Latest Gossip Stories">
+      <div class="section-head">
+        <div class="section-title">
+          <span class="section-icon">🔥</span>
+          <h2 id="storiesSectionHeading">THE HOTTEST DISPATCHES</h2>
+        </div>
+        <p class="section-subtitle" id="storiesCount">Showing all curated island stories</p>
+      </div>
+
+      <div class="stories-grid" id="storiesGrid">
+        <!-- Stories injected by app.js -->
+      </div>
+    </section>
+
+    <!-- Colombo Blind Items Section -->
+    <section class="blind-items-section" id="blindItemsSection" aria-label="Colombo Blind Items">
+      <div class="section-head">
+        <div class="section-title">
+          <span class="section-icon">🎭</span>
+          <h2>COLOMBO BLIND ITEMS</h2>
+        </div>
+        <p class="section-subtitle">Names redacted. Reputations on the line. Guess who?</p>
+      </div>
+
+      <div class="blind-grid" id="blindItemsGrid">
+        <!-- Blind items injected by app.js -->
+      </div>
+    </section>
+
+    <!-- Spotted Radar & Nightlife Map Section -->
+    <section class="spotted-radar-section" id="spottedRadarSection" aria-label="Island Radar & Hotspots">
+      <div class="radar-left">
+        <span class="editorial-badge" style="width:fit-content;">ISLAND HOTSPOT RADAR</span>
+        <h3>Where Colombo Society is Whispering Tonight</h3>
+        <p>From the valet lines at Galle Face to secret beach villas in Mirissa, our field informants track the heat index in real time.</p>
+        
+        <div class="hot-meter-box">
+          <div class="hot-meter-header">
+            <h4>COMMUNITY SPICE CONSENSUS</h4>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Updated Live</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.85rem;">
+            Over 1,840 readers have voted on this week's Galle Face Defender Standoff.
+          </p>
+          <div class="meter-bar" style="width:100%; height:8px; border-radius:4px;">
+            <div class="meter-fill" style="width:82%;"></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted); margin-top:6px;">
+            <span>82% Rated "Pure Fact"</span>
+            <span>18% Rated "Elites Covering Tracks"</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="radar-interactive-board" id="radarBoard">
+        <!-- Hotspots interactive cards rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- VIP Society Circle Newsletter Banner -->
+    <section class="vip-circle-banner" aria-label="VIP Society Newsletter">
+      <span class="vip-badge">JOIN THE INNER CIRCLE</span>
+      <h2>Get Colombo's Juiciest Tea Delivered Before The Group Chats Explode</h2>
+      <p>Subscribe to Future Ceylon's confidential midnight briefing. No spam, just pure unadulterated high-society dispatches.</p>
+      
+      <form class="subscribe-form" id="newsletterForm">
+        <input type="email" class="subscribe-input" id="newsletterEmail" placeholder="Enter your private email address..." required aria-label="Email Address">
+        <button type="submit" class="subscribe-submit">Get Access</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h2>FUTURE CEYLON</h2>
+        <p>Sri Lanka's leading digital society publication and pop-culture confidential. Documenting the island's drama, glamour, and cultural shifts since 2026.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Beats & Sections</h4>
+        <ul class="footer-links">
+          <li><a data-filter="Colombo 7 Elites">Colombo 7 Elites</a></li>
+          <li><a data-filter="Cricket & Stars">Cricket & Glamour</a></li>
+          <li><a data-filter="Nightlife & Raves">Mirissa & Nightlife</a></li>
+          <li><a data-filter="Pageant & Influencer Drama">Influencers & Pageants</a></li>
+          <li><a href="#blindItemsSection">Blind Items</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>The Desk</h4>
+        <ul class="footer-links">
+          <li><a id="footerSpillBtn">Whistleblower Tip Box</a></li>
+          <li><a id="footerHotspotsBtn">Spotted Radar</a></li>
+          <li><a id="footerEditorialPolicy">Editorial Ethics & Satire Policy</a></li>
+          <li><a id="footerSubmissions">How to Leak Privately</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Confidentiality</h4>
+        <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.6;">
+          All tips submitted to Future Ceylon are received under journalist privilege guidelines. Pseudonyms and metadata are scrubbed automatically.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Future Ceylon Media Ltd. Colombo, Sri Lanka. Satirical commentary and society reportage.</p>
+      <p>Designed for Colombo High Society • Handcrafted in Paradise</p>
+    </div>
+  </footer>
+
+  <!-- ARTICLE READER MODAL (HTML5 <dialog>) -->
+  <dialog id="articleModal" aria-labelledby="modalArticleTitle" aria-modal="true">
+    <div class="modal-header">
+      <span class="editorial-badge" id="modalBadge">EXCLUSIVE</span>
+      <button class="close-modal-btn" id="closeArticleModal" aria-label="Close story">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="article-reader-hero">
+        <img id="modalImage" src="" alt="Story visual">
+      </div>
+      <span class="reader-category" id="modalCategory">CATEGORY</span>
+      <h2 class="reader-title" id="modalArticleTitle">Story Title</h2>
+      
+      <div class="reader-meta">
+        <span id="modalAuthor">By Lady Cinnamon</span>
+        <span>•</span>
+        <span id="modalLocation">Colombo 03</span>
+        <span>•</span>
+        <span id="modalTime">15 mins ago</span>
+      </div>
+
+      <!-- Share Buttons Bar -->
+      <div class="share-actions-row">
+        <span class="share-label">Share Tea:</span>
+        <button class="share-pill-btn" id="copyStoryLinkBtn">
+          <span>🔗</span> Copy Link
+        </button>
+        <button class="share-pill-btn" id="whatsappShareBtn">
+          <span>💬</span> WhatsApp
+        </button>
+        <button class="share-pill-btn" id="xShareBtn">
+          <span>✖️</span> Share on X
+        </button>
+      </div>
+
+      <!-- Leaked Audio Memo Bar -->
+      <div class="audio-dispatch-player" id="modalAudioPlayer">
+        <div class="adp-info">
+          <button class="adp-play-btn" id="modalAudioPlayBtn" aria-label="Play audio memo">▶</button>
+          <div class="adp-text">
+            <h5 id="modalAudioTitle">Leaked Dispatch Memo</h5>
+            <p id="modalAudioSub">Click to listen • 0:42 audio snippet</p>
+          </div>
+        </div>
+        <div class="audio-bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+
+      <!-- Article Paragraphs -->
+      <div class="reader-paragraphs" id="modalParagraphs">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <!-- Hot-O-Meter In-Article Vote -->
+      <div class="hot-meter-box" id="articleVoteBox">
+        <div class="hot-meter-header">
+          <h4>VOTE ON THIS TEA</h4>
+          <span style="font-size:0.75rem; color:var(--gold-light);">REAL-TIME VERDICT</span>
+        </div>
+        <div class="vote-buttons-grid">
+          <button class="vote-btn" data-vote="fact">
+            <span>🔥 Pure Fact</span>
+            <span class="vote-count" id="countFact">432</span>
+          </button>
+          <button class="vote-btn" data-vote="sip">
+            <span>☕ Sip The Tea</span>
+            <span class="vote-count" id="countSip">289</span>
+          </button>
+          <button class="vote-btn" data-vote="cap">
+            <span>🧢 Pure Cap</span>
+            <span class="vote-count" id="countCap">34</span>
+          </button>
+          <button class="vote-btn" data-vote="spicy">
+            <span>💣 Way Too Spicy</span>
+            <span class="vote-count" id="countSpicy">512</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Comments Section -->
+      <div class="comments-container">
+        <h3 class="comments-header">💬 Colombo Tea Talk (<span id="commentsCount">3</span>)</h3>
+        
+        <form class="comment-input-row" id="commentForm">
+          <input type="text" class="comment-input" id="newCommentInput" placeholder="Drop your comment or high-society reaction..." required aria-label="Add a comment">
+          <button type="submit" class="post-comment-btn">Drop Tea</button>
+        </form>
+
+        <div class="comments-list" id="modalCommentsList">
+          <!-- Comments rendered dynamically -->
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- SPILL THE TEA WHISTLEBLOWER MODAL -->
+  <dialog id="tipModal" aria-labelledby="tipModalTitle" aria-modal="true">
+    <div class="modal-header">
+      <h3 id="tipModalTitle">🕵️ SPILL THE TEA (ENCRYPTED)</h3>
+      <button class="close-modal-btn" id="closeTipModal" aria-label="Close tip submission">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="encryption-notice">
+        <span>🔒 256-Bit Metadata Scrubbing Enabled. Your identity is strictly anonymous.</span>
+      </div>
+
+      <form class="tip-form" id="tipForm">
+        <div class="form-group">
+          <label class="form-label" for="tipAlias">Your Informant Codename</label>
+          <input type="text" class="form-input" id="tipAlias" placeholder="e.g. C7 Matriarch, Mirissa Surf Boy, Valet Insider" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="tipCategory">Scandal Beat</label>
+          <select class="form-select" id="tipCategory">
+            <option value="Colombo 7 Elites">Colombo 7 Elites & Society</option>
+            <option value="Cricket & Stars">Cricket & Celebrity Glamour</option>
+            <option value="Nightlife & Raves">Nightlife, Raves & Beach Clubs</option>
+            <option value="Pageant & Influencer Drama">Influencers & Pageants</option>
+            <option value="Silver Screen & Drama">Cinema & Entertainment</option>
+            <option value="Anonymous Blind Item">Blind Item Mystery</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="tipLocation">Location Spotted</label>
+          <input type="text" class="form-input" id="tipLocation" placeholder="e.g. Park Street Mews, Port City Marina, Galle Face">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="tipSlider">Tea Spice Level: <span class="spice-indicator" id="spiceValue">🌶️🌶️🌶️ High Voltage</span></label>
+          <div class="spice-slider-row">
+            <input type="range" class="spice-slider" id="tipSlider" min="1" max="5" value="3">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="tipStory">The Tea / Rumor / Sighting</label>
+          <textarea class="form-textarea" id="tipStory" placeholder="Describe the scene, who was with whom, what was said, car plates, or overheard drama..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-tip-btn">🚀 Dispatch Confidential Tip</button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Interactive Toast Notification -->
+  <div class="toast-msg" id="toastMsg" role="status" aria-live="polite">
+    <span id="toastIcon">✨</span>
+    <span id="toastText">Tip dispatched securely to Future Ceylon editorial desk!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
