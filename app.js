@@ -137,6 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
       document.documentElement.setAttribute('data-theme', 'sunset');
     } else if (theme === 'emerald') {
       document.documentElement.setAttribute('data-theme', 'emerald');
+    } else if (theme === 'champagne') {
+      document.documentElement.setAttribute('data-theme', 'champagne');
     } else {
       document.documentElement.removeAttribute('data-theme');
     }
@@ -160,9 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const names = {
         midnight: 'Galle Face Midnight 🌙',
         sunset: 'Cinnamon Sunset 🌅',
-        emerald: 'Ceylon Emerald Estate 🌿'
+        emerald: 'Ceylon Emerald Estate 🌿',
+        champagne: 'Royale Champagne & Ivory 👑'
       };
-      showToast(`Palette switched to ${names[theme] || theme}`, '🎨');
+      showToast(`Theme transformed to ${names[theme] || theme}`, '🎨');
     });
   });
 

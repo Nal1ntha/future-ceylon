@@ -102,6 +102,44 @@
   --border-gold: rgba(230, 184, 77, 0.4);
 }
 
+/* THEME 4: Royale Champagne & Ivory */
+[data-theme="champagne"] {
+  --theme-name: "champagne";
+  --bg-base: #f6f3eb;
+  --bg-surface: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.94);
+  --bg-card-hover: #ffffff;
+  --bg-elevated: #ede6d8;
+
+  --gold-primary: #b3821a;
+  --gold-light: #e5b34a;
+  --gold-dark: #7a5408;
+  --gold-glow: rgba(179, 130, 26, 0.22);
+  --gold-gradient: linear-gradient(135deg, #e5b34a 0%, #b3821a 50%, #7a5408 100%);
+
+  --magenta-primary: #d61c56;
+  --magenta-light: #ff4d82;
+  --magenta-glow: rgba(214, 28, 86, 0.25);
+  --magenta-gradient: linear-gradient(135deg, #ff4d82 0%, #d61c56 60%, #990033 100%);
+
+  --emerald-primary: #00875a;
+  --emerald-glow: rgba(0, 135, 90, 0.25);
+
+  --text-primary: #12151a;
+  --text-secondary: #3b4352;
+  --text-muted: #64748b;
+  --text-accent: #946808;
+
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-gold: rgba(179, 130, 26, 0.35);
+  --border-magenta: rgba(214, 28, 86, 0.35);
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 16px 36px -10px rgba(20, 25, 35, 0.08), 0 0 0 1px var(--border-subtle);
+  --shadow-hover: 0 24px 50px -12px rgba(20, 25, 35, 0.14), 0 0 20px var(--gold-glow), 0 0 0 1px var(--gold-primary);
+  --shadow-magenta: 0 12px 30px -8px var(--magenta-glow);
+}
+
 /* Global Reset */
 *, *::before, *::after {
   margin: 0;
@@ -114,10 +152,15 @@ html {
   color-scheme: dark;
 }
 
+[data-theme="champagne"] {
+  color-scheme: light;
+}
+
 body {
   background-color: var(--bg-base);
   color: var(--text-primary);
   font-family: var(--font-body);
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
@@ -1607,7 +1650,7 @@ dialog[open] {
 .modal-header {
   position: sticky;
   top: 0;
-  background: rgba(11, 15, 23, 0.96);
+  background: var(--bg-surface);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-subtle);
   padding: 1.35rem 2rem;
@@ -1621,7 +1664,7 @@ dialog[open] {
   font-family: var(--font-serif);
   font-size: 1.3rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .close-modal-btn {
@@ -1680,7 +1723,7 @@ dialog[open] {
   font-size: 1.95rem;
   font-weight: 700;
   line-height: 1.25;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .reader-meta {
@@ -1797,7 +1840,7 @@ dialog[open] {
 .comments-header {
   font-family: var(--font-serif);
   font-size: 1.25rem;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 1.1rem;
   display: flex;
   align-items: center;
@@ -1894,10 +1937,20 @@ dialog[open] {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 11px 16px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.9rem;
   outline: none;
   font-family: var(--font-body);
+}
+
+[data-theme="champagne"] .form-input,
+[data-theme="champagne"] .form-select,
+[data-theme="champagne"] .form-textarea,
+[data-theme="champagne"] .comment-input,
+[data-theme="champagne"] .search-input {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #12151a;
 }
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
